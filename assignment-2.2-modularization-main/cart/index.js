@@ -14,7 +14,8 @@ const cart = [
         price:12.90
     }
 ];
-
+const mycart = require ("./tax-calculator.js")
 // 2. Use array iteration method to produce an amount payable using the property "price".
+
 
 // 3. Invoke tax calculator with the payable amount.
