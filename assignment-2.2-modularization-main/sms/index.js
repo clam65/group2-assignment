@@ -36,6 +36,17 @@ const messages = [
 
 // Use Promise.all() and Array#map to send all the messages.
 // send("ziyu",messages[0]["message"]);
-Promise.all(messages.map((item) => send(item["to"], item["message"]))).then((result) => {
-    console.log("END");
-});
+// Promise.all(messages.map((item) => send(item["to"], item["message"]))).then((resolve) => {
+//     console.log(resolve);
+// });
+
+const answer = async () => {
+    Promise.all(
+        messages.map(async (message) => {
+            const response = await send(message["to"], message["message"]).then((resolve) => {
+                console.log(resolve);
+            });
+        })
+    ).then((result) => console.log("END"));
+};
+answer();
