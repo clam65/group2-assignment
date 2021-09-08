@@ -10,30 +10,34 @@
 
 // Add code here to import sms.js
 
+import send from './sms.js';
 const messages = [
     {
-        to:"91234567",
-        message:"Hello"
+        to: "91234567",
+        message: "Hello",
     },
     {
-        to:"91111111",
-        message:"See you"
+        to: "91111111",
+        message: "See you",
     },
     {
-        to:"92222222",
-        message:"Bye"
+        to: "92222222",
+        message: "Bye",
     },
     {
-        to:"93333333",
-        message:"Hihi"
+        to: "93333333",
+        message: "Hihi",
     },
     {
-        to:"94444444",
-        message:"I love you"
-    }
-]
+        to: "94444444",
+        message: "I love you",
+    },
+];
 
 // Use Promise.all() and Array#map to send all the messages.
-
-
-console.log("END"); // This line must be printed last.
+// send("ziyu",messages[0]["message"]);
+Promise.all(
+    messages.map(item => send(item["to"],item["message"]))
+).then(result => console.log(result)).then((result)=>{
+    console.log("END");
+})

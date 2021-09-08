@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from "./node_modules/lodash/lodash.js";
 
 function send(to, message){
     const duration = _.random(1,3);
