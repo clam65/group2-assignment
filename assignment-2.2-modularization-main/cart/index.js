@@ -3,25 +3,25 @@ let calculate = require("./tax-calculator");
 
 const cart = [
     {
-        item:"Toy",
-        price:29.90
+        item: "Toy",
+        price: 29.9,
     },
     {
-        item:"Back Pack",
-        price:59.90
+        item: "Back Pack",
+        price: 59.9,
     },
     {
-        item:"Pencil Case",
-        price:12.90
-    }
+        item: "Pencil Case",
+        price: 12.9,
+    },
 ];
 let finalprice = 0;
+let serverciCharge = 10;
 // 2. Use array iteration method to produce an amount payable using the property "price".
 for (let i = 0; i < cart.length; i++) {
-    finalprice += cart[i]["price"];
+    finalprice += calculate(cart[i].price, serverciCharge);
 }
-let total_amount = calculate(finalprice);
 
-console.log(total_amount);
+console.log(finalprice);
 
 // 3. Invoke tax calculator with the payable amount.
