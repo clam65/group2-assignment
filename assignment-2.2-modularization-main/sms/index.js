@@ -43,7 +43,7 @@ const messages = [
 const answer = async () => {
     Promise.all(
         messages.map(async (message) => {
-            const response = await send(message["to"], message["message"]).then((resolve) => {
+            const response = await send(message.to, message.message).then((resolve) => {
                 console.log(resolve);
             });
         })
