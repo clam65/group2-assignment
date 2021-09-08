@@ -47,6 +47,6 @@ const answer = async () => {
                 console.log(resolve);
             });
         })
-    ).then((result) => console.log("END"));
+    ).then(() => console.log("END"));
 };
 answer();
