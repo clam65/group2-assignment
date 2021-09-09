@@ -16,12 +16,12 @@ const cart = [
     },
 ];
 let finalprice = 0;
-let serverciCharge = 10;
+let serviceCharge = 10;
 // 2. Use array iteration method to produce an amount payable using the property "price".
 for (let i = 0; i < cart.length; i++) {
-    finalprice += calculate(cart[i].price, serverciCharge);
+    finalprice += calculate(cart[i].price, serviceCharge);
 }
 
-console.log(finalprice);
+console.log(parseFloat(finalprice).toFixed(2));
 
 // 3. Invoke tax calculator with the payable amount.
