@@ -14,27 +14,31 @@
 */
 
 // Takes two arguments - a function to be invoked later on if username is not undefined.
-// After ensuring username is given, invoke processRequest() 
-function handleRequest(requestFn, username){
-    if(!username){
+// After ensuring username is given, invoke processRequest()
+
+function handleRequest(requestFn, username) {
+    if (!username) {
         throw new Error("username is undefined");
     }
-
-    processRequest(requestFn);
+    this.processRequest(requestFn);
 }
 
-// In a typical request processing, there will be integration points where connections are opened. 
+// In a typical request processing, there will be integration points where connections are opened.
 // We will call closeConnections() everytime the given process is ended.
 // Sometimes connections are unable to close due to various reasons. In this case, we won't go into the details of the reason.
-function processRequest(requestFn){
+function processRequest(requestFn) {
     requestFn();
-    if(closeConnections())
-        return "ok";
-    else
-        throw new Error("Internal server error");
+    if (this.closeConnections()) return "ok";
+    else throw new Error("Internal server error");
 }
 
 // This function currently always return true. You may consider mocking this function to return false to simulate a close connection error scenario.
-function closeConnections(){
+function closeConnections() {
     return true;
 }
+
+module.exports = {
+    handleRequest,
+    processRequest,
+    closeConnections,
+};
